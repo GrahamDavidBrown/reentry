@@ -1,0 +1,16 @@
+body {
+  font: 16px/1.2 'Roboto', sans-serif;
+  background-color: #eee;
+  text-align: center;
+}
+
+input {
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+.space-after {
+  margin-bottom: 30px;
+}

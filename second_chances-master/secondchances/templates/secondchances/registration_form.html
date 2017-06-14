@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% block title %}Welcome{% endblock %}
+    {% block content %}
+    <h2>Login or Sign Up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit">Register</button>
+    </form>
+    {% endblock %}
+  </body>
+</html>

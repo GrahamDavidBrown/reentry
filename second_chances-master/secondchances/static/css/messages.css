@@ -1,0 +1,129 @@
+body {
+  background-color: #fff;
+  text-align: center;
+  font: 16px/1 'Roboto';
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  width: 100%;
+}
+
+.messages-header {
+  background-color: #c1dceb;
+  width: 100%;
+}
+.messages-header>img {
+  max-width: 300px;
+  margin: 10px auto;
+}
+.messagectr-title {
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.messages-title {
+  border: 10px solid #ccc;
+  padding: 15px;
+}
+.conversation-title {
+  padding: 15px;
+  font-size: 1.2rem;
+}
+.messages-title>h2 {
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+}
+.messages-title>h3 {
+  background-color: #ccc;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin: 10px;
+}
+.messages-title>h4 {
+  color: #777;
+}
+.messages-body>h3 {
+  margin: 10px;
+}
+.all-messages>a {
+  display: block;
+  background-color: #c1dceb;
+  border-radius: 10px;
+  transition: all 1s ease;
+  transition-property: transform, background-color;
+  text-decoration: none;
+  color: #000;
+  padding:  10px;
+  width: 80%;
+  margin: 10px auto;
+}
+.all-messages>a:hover {
+  background-color: #328cc1;
+  transform: scale(1.1);
+  color: #fff;
+}
+#main {
+  background-color: #ddd;
+  max-width: 700px;
+  width: 80%;
+  border-top: none;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 5px 20px;
+}
+.individual-message {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  clear: both;
+  max-width: 55%;
+  margin: 10px 0;
+}
+.from-user, .right {
+  float: left;
+  text-align: left;
+  border: 1px solid #aaa;
+  border-left: 5px solid #328cc1;
+}
+.to-user, .left {
+  float: right;
+  text-align: right;
+  border: 1px solid #aaa;
+  border-right: 5px solid #083c5d;
+}
+.right, .left {
+  border: none;
+  color: #777;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+#sent_time {
+  color: #777;
+  font-size: .7rem;
+}
+.text-submit {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+textarea {
+  min-height: 10vh;
+  width: 90%;
+  border: 2px solid #ccc;
+  resize: none;
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+button {
+  background-color: #328cc1;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 1rem;
+  transition: all .5s ease;
+}
+button:hover {
+  background-color: #083c5d;
+  transform: scale(1.2);
+}

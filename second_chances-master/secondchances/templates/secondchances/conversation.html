@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>reEntry | {{user.username}} Message Center</title>
+  {% load staticfiles %}
+  <link rel="icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet" />
+  <link rel=stylesheet type="text/css" href="{% static 'css/reset.css' %}" />
+  <link rel=stylesheet type="text/css" href="{% static 'css/messages.css' %}" />
+</head>
+
+
+  <body>
+    <header id='head'>
+      <div class='messages-header'>
+        <img src="{% static 'media/reentrylogo.png' %}" alt="reentry logo"/>
+      </div>
+
+      <h1 class='messagectr-title'>Message Center</h1>
+
+      <article class='conversation-title'>
+        <h2>Conversation with
+          {{user2}}
+        </h2>
+      </article>
+    </header>
+
+
+    <main id='main'>
+
+      <div class="message-border">
+        <div class="message-box">
+          <header>
+            <p class='right'>You wrote:</p>
+            <p class='left'>{{user2}} wrote:</p>
+          </header>
+          <div  id='from-user' value="{{user1.id}}">
+          <div  id='to-user' value="{{user2.id}}">
+          {% for message in full_conversation %}
+            {% if message.sender == user1 %}
+                <p class="individual-message from-user">{{message}}</p>
+              </div>
+              {% comment %}
+                <div class="individual-message from-user" id="sent_time">{{message.sent_at}}</div>
+              {% endcomment %}
+              {% else %}
+                <p class="individual-message to-user">
+                  {{message.sender}}:
+                  {{message}}
+                </p>
+              </div>
+              {% comment %}
+
+              <div class="individual-message to-user" id="sent_time">{{message.sent_at}}</div>
+              {% endcomment %}
+
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </main>
+      <div class="text-submit">
+        <div class="ui-field-contain">
+          {% comment %}
+            <label for="textarea">Message to {{user2}}:</label>
+          {% endcomment %}
+
+          <textarea name="textarea" id="textarea"></textarea>
+        </div>
+        <button class="small-item" onclick="sendMessage()" type="submit" value="Send">Send a message to {{user2}}</button>
+      </div>
+    {% csrf_token %}
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="{% static 'js/messages.js' %}"></script>
+  </body>
+</html>

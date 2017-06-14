@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>reEntry | {{user.username}} Message Center</title>
+  {% load staticfiles %}
+  <link rel="icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet" />
+  <link rel=stylesheet type="text/css" href="{% static 'css/reset.css' %}" />
+  <link rel=stylesheet type="text/css" href="{% static 'css/messages.css' %}" />
+</head>
+
+<body>
+  <header class='messages-header'>
+    <img src="{% static 'media/reentrylogo.png' %}" alt="reentry logo" />
+  </header>
+
+  <h1 class='messagectr-title'>Message Center</h1>
+
+  <article class='messages-title'>
+    <h2>Your Conversations</h2> {% if num_of_unread|length > 0 %}
+    <h4>You have <span>{{num_of_unread|length}}</span> unread messages</h4> {% else %}
+    <h4>No unread messages</span></h4> {% endif %}
+  </article>
+
+  <article class='messages-body'>
+    <h3>Your Conversations:  {{num_of_convos}} active</h3>
+    <p>Click title to open</p>
+    {% for conversation in all_conversations%}
+    <!-- <div class="contacts"><a href="conversation/{{conversation.id}}">{{conversation}}</a></div> -->
+    <div class='all-messages'>
+      <a href="https://arcane-hollows-70832.herokuapp.com/secondchances/conversation/{{user.id}}/{{conversation.id}}">Your conversation with {{conversation}}</a>
+    </div>
+    {% endfor %}
+  </article>
+</body>
+</html>
